@@ -1,7 +1,6 @@
 package com.github.jsonzou.jmockdata.mocker;
 
 import com.github.jsonzou.jmockdata.DataConfig;
-import com.github.jsonzou.jmockdata.MockConfig;
 import com.github.jsonzou.jmockdata.Mocker;
 import java.lang.reflect.Type;
 import java.util.Collection;
@@ -24,7 +23,7 @@ public class ClassMocker implements Mocker<Object> {
     if (clazz.isArray()) {
       mocker = new ArrayMocker(clazz);
     } else if (Map.class.isAssignableFrom(clazz)) {
-      mocker = new MapMocker(genericTypes);
+      mocker = new MapMocker(clazz, genericTypes);
     } else if (Collection.class.isAssignableFrom(clazz)) {
       mocker = new CollectionMocker(clazz, genericTypes[0]);
     } else if (clazz.isEnum()) {
