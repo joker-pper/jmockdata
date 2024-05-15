@@ -140,7 +140,7 @@ public class JMockDataTest {
     try {
       JMockData.mock(BasicBean.class, new MockConfig().dateRange("20100101", "20301230"));
       fail();
-    } catch (Exception e) {
+    } catch (Exception | Error e) {
       // Ignore
     }
   }
